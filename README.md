@@ -6,3 +6,8 @@
 ```
 $ npm install --save axios
 ```
+
+#### To run scripts use
+```
+$ node <script_filename>
+```
