@@ -8,6 +8,13 @@ $ npm install --save axios
 ```
 
 #### To run scripts use
+
+**To test get method use**
 ```
-$ node <script_filename>
+$ node run get
+```
+
+**To test post method use**
+```
+$ node run post
 ```

@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "get":"node axios_get.js",
+    "post": "node axios_post.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
