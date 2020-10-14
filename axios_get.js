@@ -1,4 +1,7 @@
+const dotenv = require('dotenv')
 const axios = require('axios');
+
+dotenv.config();
 
 const request_queries = [
     'redux',
@@ -39,21 +42,16 @@ const makeManyRequests = async ()=>{
     })
 }
 
-const makeConfigBasedRequest = async (arg)=>{
+// const makeConfigBasedRequest = async (arg)=>{
 
-    const config = {
-        method: 'get',
-        url: 'https://hn.algolia.com/api/v1/search',
-        params:{
-            query: arg
-        }
-    }
-
-    let result = axios(config);
-    result.then((res) =>{
-        console.log(res.data)
-    })
-}
+//     const config = {
+//         method: 'get',
+//         url: 'https://hn.algolia.com/api/v1/search',
+//         params:{
+//             query: arg
+//         }
+//     })
+// }
 
 const makeWikipediaConfigRequest = async (arg)=>{
 
@@ -85,8 +83,31 @@ const makeWikipediaConfigRequest = async (arg)=>{
     console.log(results.data)
 }
 
+const makeOpenWeatherMapRequest = async ()=>{
+
+    const config={
+        method: 'get',
+        url: "https://api.openweathermap.org/data/2.5/weather",
+        params:{
+            q: 'gadanki',
+            appid: process.env.OWM_APIKEY,
+            units: 'metric'
+        }
+    }
+    try{
+        const results = await axios(config);
+        console.log(results.data)
+    }
+    catch(error){
+        console.log(error);
+    }
+
+    
+}
+
 
 // makeGetRequest();
 // makeManyRequests();
-makeConfigBasedRequest('redux');
+// makeConfigBasedRequest('redux');
 // makeWikipediaConfigRequest('india')
+makeOpenWeatherMapRequest();
